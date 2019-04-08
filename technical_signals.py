@@ -92,7 +92,7 @@ def get_stats(df, feature, stdev_threshold, window):
 #buy_signals, sell_signals = get_stats(df, 'RSI_14', stdev_threshold, window)
 
 
-def run(df, stdev_threshold, window):
+def combine_features(df, stdev_threshold, window):
     ''' Concat buy/sell signal df's and name cols (works but may not be most concise/efficient) '''
     features = list(df.columns)
     df_final = pd.DataFrame()
@@ -102,7 +102,7 @@ def run(df, stdev_threshold, window):
         df_final = pd.concat([df_final, buy_signals, sell_signals], axis=1)
 
     return df_final
-df_final = run(df, stdev_threshold, window)
+df_final = combine_features(df, stdev_threshold, window)
 
 
 
@@ -160,6 +160,25 @@ def get_plots(rtn_pd_dict):
     return plt.show()
 get_plots(rtn_pd_dict)
 
+
+# Try RSI > threshold
+# using standardized
+def get_plot(df, feature):
+    feat_stdized =  (df[feature] - df[feature].mean()) / df[feature].std()
+    fig, ax = plt.subplots(figsize=(12,6))
+    ax.plot(feat_stdized, linewidth=0.5)
+    ax.axhline(y=stdev_threshold, linestyle='--', color='gray', linewidth=1)
+    ax.axhline(y=-stdev_threshold, linestyle='--', color='gray', linewidth=1)
+    ax.fill_between(df.index, feat_stdized, stdev_threshold,
+                    where = feat_stdized > stdev_threshold,
+                    facecolor='red', interpolate=True, alpha=0.5)
+    ax.fill_between(df.index, feat_stdized, -stdev_threshold,
+                    where = feat_stdized < -stdev_threshold,
+                    facecolor='green', interpolate=True, alpha=0.5)
+    ax.set(title = feature+' Standardized', wieght='bold', ylabel='Standard Deviation')
+
+    return plt.show()
+get_plot(df, 'RSI_14')
 
 
 
