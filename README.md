@@ -18,12 +18,15 @@ Therefore, this framework provides an efficient method to assess a multitude of 
 
 The accuracy percentage scale is re-centred so that 50% accuracy is zero to make it easier to see which signals are above or below 50% accuracy. They are then ranked by descending accuracy. The table below shows some stats to highlight that accuracy alone should not be the determining ranking factor. For example, the table summarizes the top 5 signals in the 1-Quarter Return Outcomes plot. However, PE1_STD_buy is ranked second after PB1_STD_buy in the plot, but since PE1 has both greater frequency and higher return, its score is higher. Similarly, RSI_42_buy is ranked 5th by accuracy alone, but with higher frequency and returns considered, it scores as 2nd most reliable indicator.
 
+
+
 #### Other things to note:
 Almost all the indicators with >50% accuracy are buy signals, and vice versa. This would suggest that BBCA_IJ was an upward trending stock and simply buying the dips would have been a good starting point (indeed the price chart confirms this). Still, it is extremely helpful to know which signal to rely upon when buying dips, and PE stands out as by far the most reliable for this stock. The lowest min return of any PE buy signal for any return outcome period was -0.7%, while the lowest max of any period was 15%, implying a very good risk / reward skew.
 
 Interesting also to note that PE_sell scores 5th for the 1-Quarter Return Outcomes, suggesting it is reasonably good as a two-way indicator.
 
-The scoring method is hastily cobbled together and could likely be improved, but intuitively makes sense for ranking.
+The scoring method is hastily cobbled together and could likely be improved, but intuitively makes sense for ranking. 
+
 Its difficult to avoid duplicate counting of signals, particularly with faster signals, as the level can dip back and forth across the threshold. This has largely been avoided for the 1-week and 1-month return horizons, but is more challenging to deal with for the 1-quarter outcome horizon.
 
 #### Next steps:
