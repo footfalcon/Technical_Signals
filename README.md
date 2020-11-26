@@ -5,7 +5,7 @@ This code provides a way to evaluate the signal strength of a variety of oscilla
 
 The results show that not all technical indicators provide the same signal strength for all stocks. For example, an RSI outlier signalling a buy on one stock may be more reliable than the same RSI generating a buy signal for another stock (intuitively this makes sense). 
 
-Therefore, this framework provides an efficient method to assess a multitude of technical signals across a universe of stocks, identify the signal strength for each, and __comb a universe of stocks to find current technical outliers to indentify stocks to consider for investment.__ 
+Therefore, this framework provides an efficient method to assess a multitude of technical signals across a universe of stocks, identify the signal strength for each, and __comb a universe of stocks to find current technical outliers to indentify stocks to consider for investment.__ The following example shows results and analysis for Bank Central Asia (BBCA) in Indonesia.
 
 
 ### Here are the 10 technical indicators evaluated, showing buy/sell signals for a +/-1.5 stdev threshold:
